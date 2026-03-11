@@ -27,17 +27,35 @@
 
     <nav id="navbar" class="fixed top-0 w-full z-50 p-6 transition-all duration-300">
         <div class="nav-container max-w-7xl mx-auto px-6 py-4 flex justify-between items-center bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 rounded-full shadow-lg transition-all duration-300">
-            <a href="#" class="text-2xl font-black tracking-tighter uppercase text-zinc-900 dark:text-white transition-colors hover:opacity-80">
-                JS<span class="text-lime-500">Film</span>
+            
+            <a href="#" class="transition-transform hover:scale-105 active:scale-95 flex items-center">
+                <img src="./assets/logos/jslogo.png" 
+                     alt="JS FILM Logo" 
+                     class="h-16 w-auto object-contain dark:hidden">
+
+                <img src="./assets/logos/jslogo-light.png" 
+                     alt="JS FILM Logo" 
+                     class="h-16 w-auto object-contain hidden dark:block">
             </a>
+
             <div class="hidden md:flex items-center gap-6 text-[11px] font-bold uppercase tracking-[2px] text-zinc-800 dark:text-zinc-200">
                 <a href="#o-mnie" class="nav-link">O mnie</a>
                 <a href="#oferta" class="nav-link">Oferta</a>
                 <a href="#portfolio" class="nav-link">Realizacje</a>
                 <div class="w-px h-6 bg-zinc-300 dark:bg-zinc-700 transition-colors"></div>
-                <button id="theme-toggle" class="relative w-12 h-6 bg-zinc-200 dark:bg-zinc-800 rounded-full transition-all group cursor-pointer">
-                    <div class="dot absolute left-1 top-1 w-4 h-4 bg-white dark:bg-lime-400 rounded-full shadow-md transition-transform duration-300 dark:translate-x-6 group-hover:scale-110"></div>
+                
+                <button id="theme-toggle" class="relative w-16 h-8 bg-zinc-200 dark:bg-zinc-800 rounded-full transition-all duration-500 group cursor-pointer overflow-hidden shadow-inner">
+                    <div class="absolute inset-0 flex justify-between items-center px-2 text-[10px] z-0">
+                        <i class="fa-solid fa-sun text-amber-500 opacity-100 dark:opacity-20 transition-opacity duration-500"></i>
+                        <i class="fa-solid fa-moon text-blue-300 opacity-20 dark:opacity-100 transition-opacity duration-500"></i>
+                    </div>
+                    
+                    <div class="dot absolute left-1 top-1 w-6 h-6 bg-white dark:bg-zinc-900 rounded-full shadow-md transition-transform duration-500 z-10 flex items-center justify-center dark:translate-x-8">
+                        <i class="fa-solid fa-sun text-amber-500 text-[12px] block dark:hidden"></i>
+                        <i class="fa-solid fa-moon text-blue-400 text-[12px] hidden dark:block"></i>
+                    </div>
                 </button>
+
                 <a href="#kontakt" class="bg-zinc-900 text-white dark:bg-white dark:text-black px-8 py-3 rounded-full hover:bg-lime-500 hover:text-black dark:hover:bg-lime-400 transition-all shadow-md hover:scale-105">Kontakt</a>
             </div>
         </div>
@@ -249,6 +267,39 @@
                     </div>
 
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-zinc-950 overflow-hidden border-y border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 mb-8 text-center">
+            <p class="text-lime-400 font-mono text-[16px] tracking-[3px] uppercase">/ Zaufali nam</p>
+        </div>
+
+        <div class="logos-slider relative flex items-center overflow-hidden">
+            <div class="logos-slide flex items-center shrink-0">
+                <img src="./assets/logos/hydraperformance.png" alt="Hydra Performance" class="h-16 mx-12 transition-all">
+                <img src="./assets/logos/joniec.png" alt="Joniec" class="h-16 mx-12 transition-all">
+                <img src="./assets/logos/majesty.png" alt="Majesty" class="h-16 mx-12 transition-all">
+                <img src="./assets/logos/surron.png" alt="Surron" class="h-24 mx-12 transition-all">
+                <img src="./assets/logos/trzyowce.png" alt="Trzy Owce" class="h-24 mx-12 transition-all">
+                <img src="./assets/logos/vincitore.png" alt="Vincitore" class="h-24 mx-12 transition-all">
+                <img src="./assets/logos/winner.png" alt="Winner" class="h-24 mx-12 transition-all">
+                <img src="./assets/logos/bunique.png" alt="BUnique" class="h-16 mx-12 transition-all">
+                <img src="./assets/logos/gopro.png" alt="GoPro" class="h-16 mx-12 transition-all">
+                <img src="./assets/logos/hubikubi.png" alt="HubiKubi" class="h-24 mx-12 transition-all">
+            </div>
+            <div class="logos-slide flex items-center shrink-0">
+                <img src="./assets/logos/hydraperformance.png" alt="Hydra Performance" class="h-16 mx-12 transition-all">
+                <img src="./assets/logos/joniec.png" alt="Joniec" class="h-16 mx-12 transition-all">
+                <img src="./assets/logos/majesty.png" alt="Majesty" class="h-16 mx-12 transition-all">
+                <img src="./assets/logos/surron.png" alt="Surron" class="h-24 mx-12 transition-all">
+                <img src="./assets/logos/trzyowce.png" alt="Trzy Owce" class="h-24 mx-12 transition-all">
+                <img src="./assets/logos/vincitore.png" alt="Vincitore" class="h-24 mx-12 transition-all">
+                <img src="./assets/logos/winner.png" alt="Winner" class="h-24 mx-12 transition-all">
+                <img src="./assets/logos/bunique.png" alt="BUnique" class="h-16 mx-12 transition-all">
+                <img src="./assets/logos/gopro.png" alt="GoPro" class="h-16 mx-12 transition-all">
+                <img src="./assets/logos/hubikubi.png" alt="HubiKubi" class="h-24 mx-12 transition-all">
             </div>
         </div>
     </section>

@@ -87,6 +87,42 @@ textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-aut
     transform: scale(0.98);
 }
 
+/* Slider Logotypów - Animacja */
+@keyframes slideLogos {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+.logos-slider {
+    padding: 10px 0; /* Mniejszy pionowy padding */
+}
+
+/* Maskowanie krawędzi */
+.logos-slider::before,
+.logos-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px; /* Nieco węższy gradient */
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logos-slider::before {
+    left: 0;
+    background: linear-gradient(to right, #09090b 0%, transparent 100%);
+}
+
+.logos-slider::after {
+    right: 0;
+    background: linear-gradient(to left, #09090b 0%, transparent 100%);
+}
+
+.logos-slide {
+    animation: slideLogos 35s linear infinite; /* Prędkość dostosowana do mniejszego paska */
+}
+
 /* RWD dla wideo modala */
 @media (max-width: 768px) {
     #close-modal {
@@ -95,3 +131,4 @@ textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-aut
         font-size: 2rem;
     }
 }
+
