@@ -1,5 +1,4 @@
-﻿// Rejestracja GSAP
-gsap.registerPlugin(ScrollTrigger);
+﻿gsap.registerPlugin(ScrollTrigger);
 
 let scene, camera, renderer, points;
 const html = document.documentElement;
@@ -17,26 +16,29 @@ const initThree = () => {
 
     const geo = new THREE.BufferGeometry();
     const pos = [];
-    for(let i=0; i<2000; i++) {
-        pos.push((Math.random()-0.5)*25, (Math.random()-0.5)*25, (Math.random()-0.5)*25);
+    for(let i=0; i<3000; i++) {
+        pos.push((Math.random()-0.5)*30, (Math.random()-0.5)*30, (Math.random()-0.5)*30);
     }
     geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
     
     const isDark = html.classList.contains('dark');
     const mat = new THREE.PointsMaterial({ 
         color: isDark ? 0x84cc16 : 0x3f6212, 
-        size: 0.02, 
+        size: 0.025, 
         transparent: true, 
-        opacity: 0.4 
+        opacity: 0.5 
     });
 
     points = new THREE.Points(geo, mat);
     scene.add(points);
-    camera.position.z = 10;
+    camera.position.z = 12;
 
     function animate() {
         requestAnimationFrame(animate);
-        if (points) points.rotation.y += 0.0007;
+        if (points) {
+            points.rotation.y += 0.0005;
+            points.rotation.x += 0.0002;
+        }
         renderer.render(scene, camera);
     }
     animate();
@@ -49,19 +51,13 @@ const initHorizontal = () => {
     
     if (!container || !portfolioSection) return;
 
-    // Obliczamy dystans przewijania dynamicznie na podstawie szerokości kontenera
-    const getScrollAmount = () => {
-        let containerWidth = container.scrollWidth;
-        return -(containerWidth - window.innerWidth);
-    };
-
     gsap.to(container, {
-        x: getScrollAmount,
+        x: () => -(container.scrollWidth - window.innerWidth),
         ease: "none",
         scrollTrigger: {
             trigger: portfolioSection,
             start: "top top",
-            end: () => `+=${container.scrollWidth}`, // Długość scrolla zależna od liczby zdjęć
+            end: () => `+=${container.scrollWidth}`,
             pin: true,
             scrub: 1,
             invalidateOnRefresh: true,
@@ -88,24 +84,21 @@ const setupTheme = () => {
     });
 };
 
-// --- 4. 3D HOVER EFFECT DLA KART OFERTY ---
+// --- 4. 3D HOVER EFFECT ---
 const init3DHoverCards = () => {
     const cards = document.querySelectorAll('.offer-card');
-    
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const xPct = x / rect.width - 0.5;
-            const yPct = y / rect.height - 0.5;
+            const xPct = (e.clientX - rect.left) / rect.width - 0.5;
+            const yPct = (e.clientY - rect.top) / rect.height - 0.5;
             
             gsap.to(card, {
-                rotationY: xPct * 15,
-                rotationX: -yPct * 15,
+                rotationY: xPct * 12,
+                rotationX: -yPct * 12,
                 transformPerspective: 1000,
                 ease: "power2.out",
-                duration: 0.5
+                duration: 0.4
             });
         });
         
@@ -119,20 +112,15 @@ const init3DHoverCards = () => {
 const initCustomCursor = () => {
     const cursor = document.getElementById('portfolio-cursor');
     const projectCards = document.querySelectorAll('.project-card');
-    
-    if (!cursor || projectCards.length === 0) return;
+    if (!cursor) return;
 
-    document.addEventListener('mousemove', (e) => {
-        gsap.to(cursor, {
-            x: e.clientX,
-            y: e.clientY,
-            duration: 0.15,
-            ease: "power2.out"
-        });
+    window.addEventListener('mousemove', (e) => {
+        gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
     });
 
     projectCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
+            cursor.innerHTML = '<span>Oglądaj</span>';
             gsap.to(cursor, { scale: 1, duration: 0.3, ease: "back.out(1.7)" });
         });
         card.addEventListener('mouseleave', () => {
@@ -152,7 +140,7 @@ const initVideoModal = () => {
         card.addEventListener('click', () => {
             const videoId = card.getAttribute('data-video-id');
             if (videoId) {
-                frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
                 modal.classList.remove('opacity-0', 'pointer-events-none');
                 document.body.style.overflow = 'hidden'; 
             }
@@ -165,17 +153,15 @@ const initVideoModal = () => {
         document.body.style.overflow = '';
     };
 
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
+    closeBtn?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 };
 
-// --- 7. LOADER & START ---
+// --- 7. START APP ---
 const startApp = () => {
     gsap.to("#progress", {
         width: "100%", 
-        duration: 1.5, 
+        duration: 1.2, 
         ease: "power2.inOut",
         onComplete: () => {
             gsap.to("#preloader", {
@@ -192,13 +178,13 @@ const startApp = () => {
                     
                     gsap.utils.toArray('.reveal-content').forEach(el => {
                         gsap.to(el, {
-                            scrollTrigger: { trigger: el, start: "top 85%" },
+                            scrollTrigger: { trigger: el, start: "top 90%" },
                             opacity: 1, y: 0, duration: 1
                         });
                     });
                 },
                 onComplete: () => {
-                    gsap.to(".reveal-text", { opacity: 1, y: 0, duration: 1, stagger: 0.2 });
+                    gsap.to(".reveal-text", { opacity: 1, y: 0, duration: 0.8, stagger: 0.15 });
                 }
             });
         }

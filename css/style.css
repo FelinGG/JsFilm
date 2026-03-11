@@ -19,7 +19,7 @@ body, nav, section, footer, h1, h2, h3, h4, p, .project-card, .nav-container, in
     border-radius: 999px;
     transition: all 0.3s ease;
 }
-.nav-link:hover { color: #84cc16; background: rgba(132, 204, 22, 0.1); }
+.nav-link:hover { color: #ff3131; background: rgba(255, 28, 28, 0.1); }
 
 /* Horizontal Scroll */
 .horizontal-wrapper {
