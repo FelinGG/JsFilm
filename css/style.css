@@ -1,0 +1,97 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Caveat:wght@700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+.handwritten { font-family: 'Caveat', cursive; text-transform: none; }
+
+/* Płynne przejścia dla motywu */
+body, nav, section, footer, h1, h2, h3, h4, p, .project-card, .nav-container, input, textarea {
+    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.6s ease;
+}
+
+.reveal-text, .reveal-content { opacity: 0; transform: translateY(40px); }
+
+/* --- NAVBAR --- */
+.nav-link {
+    padding: 8px 16px;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+}
+.nav-link:hover { color: #84cc16; background: rgba(132, 204, 22, 0.1); }
+
+/* Horizontal Scroll */
+.horizontal-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Portfolio Hover Cursor Setup */
+.project-card {
+    cursor: none; 
+}
+
+/* Premium Offer Cards */
+.offer-card {
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+}
+
+/* Scrollbar Style */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #09090b; }
+::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #84cc16; }
+
+/* Fix dla auto-wypełniania formularzy */
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, 
+textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: inherit;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Styl dla sekcji Portfolio */
+#portfolio {
+    width: 100%;
+    overflow: hidden;
+}
+
+.portfolio-viewport {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.horizontal-container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    will-change: transform;
+    align-items: center;
+}
+
+.project-card {
+    flex-shrink: 0;
+    transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Efekt aktywnego kliknięcia w kartę */
+.project-card:active {
+    transform: scale(0.98);
+}
+
+/* RWD dla wideo modala */
+@media (max-width: 768px) {
+    #close-modal {
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+    }
+}
