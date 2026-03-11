@@ -304,20 +304,89 @@
         </div>
     </section>
 
-    <footer id="kontakt" class="py-32 bg-zinc-100 dark:bg-zinc-950 transition-colors duration-700 border-t border-zinc-200 dark:border-zinc-900 relative z-20">
-        <div class="max-w-3xl mx-auto px-6">
-            <p class="text-red-600 dark:text-red-500 font-mono text-sm tracking-[3px] uppercase mb-4 text-center">/ Kontakt</p>
-            <h2 class="text-6xl font-black mb-10 text-center">Napisz <span class="text-red-600">do nas.</span></h2>
-            <form id="contact-form" class="space-y-6 bg-white dark:bg-zinc-900/50 p-8 rounded-[40px] shadow-xl border border-zinc-200 dark:border-zinc-800 transition-colors">
-                <input type="text" placeholder="Imię i nazwisko" class="w-full p-5 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 text-zinc-900 dark:text-white transition-all">
-                <input type="email" placeholder="E-mail" class="w-full p-5 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 text-zinc-900 dark:text-white transition-all">
-                <textarea placeholder="Twoja wiadomość... Opowiedz o swoim pomyśle." rows="5" class="w-full p-5 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 text-zinc-900 dark:text-white transition-all resize-none"></textarea>
-                <button type="submit" class="w-full py-5 bg-zinc-900 text-white dark:bg-red-600 dark:text-white font-bold rounded-2xl hover:scale-[1.02] transition-all shadow-xl flex items-center justify-center gap-3 group">
-                    Wyślij wiadomość <i class="fa-solid fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
-                </button>
-            </form>
+<footer class="bg-white dark:bg-zinc-950 py-20 border-t border-zinc-200 dark:border-zinc-900 transition-colors duration-700">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <div class="flex flex-col justify-between reveal-content">
+                <div>
+                    <h2 class="text-4xl font-black tracking-tighter mb-6">Zróbmy razem coś <span class="text-red-600 italic handwritten">wyjątkowego</span>.</h2>
+                    <p class="text-zinc-500 dark:text-zinc-400 max-w-md mb-10 leading-relaxed">
+                        Masz projekt w głowie? Potrzebujesz strategicznego wideo, które sprzedaje? Napisz do mnie – odpowiadam zazwyczaj w ciągu 24h.
+                    </p>
+                    
+                    <div class="space-y-4 mb-10">
+                        <a href="mailto:kontakt@twojadomena.pl" class="flex items-center gap-4 text-zinc-900 dark:text-white hover:text-red-600 transition-colors group">
+                            <div class="w-12 h-12 rounded-full bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center group-hover:bg-red-600/10">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <span>kontakt@twojadomena.pl</span>
+                        </a>
+                        <div class="flex items-center gap-4 text-zinc-900 dark:text-white">
+                            <div class="w-12 h-12 rounded-full bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <span>Lokalizacja</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex gap-4 mb-8">
+                        <a href="#" class="w-12 h-12 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-black flex items-center justify-center hover:bg-red-600 hover:text-white dark:hover:bg-red-600 dark:hover:text-white transition-all shadow-lg">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-black flex items-center justify-center hover:bg-red-600 hover:text-white dark:hover:bg-red-600 dark:hover:text-white transition-all shadow-lg">
+                            <i class="fa-brands fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-black flex items-center justify-center hover:bg-red-600 hover:text-white dark:hover:bg-red-600 dark:hover:text-white transition-all shadow-lg">
+                            <i class="fa-brands fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-sm text-zinc-400 uppercase tracking-widest">
+                        &copy; <span id="year"></span> JS FILM. Wszelkie prawa zastrzeżone.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-zinc-50 dark:bg-zinc-900/50 p-8 md:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 reveal-content">
+                <form action="contact.php" method="POST" class="space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">Imię</label>
+                            <input type="text" name="name" required placeholder="Wprowadź imię i nazwisko" 
+                                class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">E-mail</label>
+                            <input type="email" name="email" required placeholder="twoj@email.com" 
+                                class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white">
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">Wiadomość</label>
+                        <textarea name="message" required rows="4" placeholder="Opisz swój pomysł..." 
+                            class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white resize-none"></textarea>
+                    </div>
+
+                    <div class="flex items-start gap-3 py-2">
+                        <input type="checkbox" name="rodo" id="rodo" required class="mt-1 accent-red-600">
+                        <label for="rodo" class="text-xs text-zinc-500 leading-relaxed cursor-pointer">
+                            Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z polityką prywatności w celu obsługi zapytania. (RODO)
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full py-5 bg-zinc-900 text-white dark:bg-red-600 dark:text-white font-black rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3 group">
+                        WYŚLIJ WIADOMOŚĆ
+                        <i class="fa-solid fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    </button>
+                </form>
+            </div>
+
         </div>
-    </footer>
+    </div>
+</footer>
 
     <div id="video-modal" class="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 opacity-0 pointer-events-none transition-opacity duration-500 backdrop-blur-lg">
         <button id="close-modal" class="absolute top-10 right-10 text-white text-5xl hover:text-red-600 transition-colors z-[210]">

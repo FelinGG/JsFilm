@@ -23,7 +23,7 @@ const initThree = () => {
     
     const isDark = html.classList.contains('dark');
     const mat = new THREE.PointsMaterial({ 
-        color: isDark ? 0x84cc16 : 0x3f6212, 
+        color: isDark ? 0xff3131 : 0x991b1b, 
         size: 0.025, 
         transparent: true, 
         opacity: 0.5 
@@ -75,9 +75,10 @@ const setupTheme = () => {
         const isDark = html.classList.contains('dark');
         if (points) {
             gsap.to(points.material.color, {
-                r: isDark ? 0.517 : 0.247,
-                g: isDark ? 0.8 : 0.384,
-                b: isDark ? 0.086 : 0.07,
+                // ZMIANA TUTAJ (wartości RGB od 0 do 1):
+                r: isDark ? 1 : 0.6,    // Intensywna czerwień w Dark, stłumiona w Light
+                g: isDark ? 0.19 : 0.1, // Minimalna domieszka zielonego
+                b: isDark ? 0.19 : 0.1, // Minimalna domieszka niebieskiego
                 duration: 0.6
             });
         }
