@@ -49,23 +49,27 @@ const initHorizontal = () => {
     const portfolioSection = document.querySelector("#portfolio");
     if (!container || !portfolioSection) return;
 
-    gsap.to(container, {
-        x: () => -(container.scrollWidth - window.innerWidth),
-        ease: "none",
-        scrollTrigger: {
-            trigger: portfolioSection,
-            start: "top top",
-            end: () => `+=${container.scrollWidth}`,
-            pin: true,
-            scrub: 1,
-            invalidateOnRefresh: true,
-            // Funkcja będzie aktywna tylko na ekranach powyżej 1024px
-            enabled: window.innerWidth > 1024 
-        }
+    let mm = gsap.matchMedia();
+
+    // DESKTOP: Horyzontalny scroll sterowany scrollem myszy
+    mm.add("(min-width: 1025px)", () => {
+        gsap.to(container, {
+            x: () => -(container.scrollWidth - window.innerWidth),
+            ease: "none",
+            scrollTrigger: {
+                trigger: portfolioSection,
+                start: "top top",
+                end: () => `+=${container.scrollWidth}`,
+                pin: true,
+                scrub: 1,
+                invalidateOnRefresh: true,
+            }
+        });
     });
 
-    window.addEventListener("resize", () => {
-        ScrollTrigger.refresh();
+    // MOBILE: Resetujemy transformacje, by CSS Scroll Snap mógł działać
+    mm.add("(max-width: 1024px)", () => {
+        gsap.set(container, { clearProps: "transform" });
     });
 };
 

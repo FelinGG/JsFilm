@@ -149,28 +149,54 @@ html:not(.dark) textarea:-webkit-autofill {
     }
 }
 
-@media (max-width: 768px) {
-    /* Mobilne poprawki dla tekstów i nawigacji */
-    h1 { font-size: 2.5rem !important; line-height: 1.1; }
-    .nav-container { padding: 10px 20px; }
-    
-    /* Ukrywamy gradienty na sliderze logo, żeby nie zasłaniały za dużo na małym ekranie */
-    .logos-slider::before, .logos-slider::after { width: 50px; }
+/* --- MEDIA QUERIES (MOBILE FIXES) --- */
 
-    #close-modal {
-        top: 20px;
-        right: 20px;
-        font-size: 2rem;
+@media (max-width: 1024px) {
+    .portfolio-viewport {
+        height: auto;
+        padding: 60px 0;
+        display: block;
     }
 
-    /* Formularz - paddingi */
-    form { padding: 10px; }
-    
-    /* Sekcje procesowe / karty ofert */
-    .reveal-content { transform: translateY(20px); }
+    .horizontal-container {
+        display: flex !important;
+        flex-direction: row !important; /* Karty obok siebie */
+        flex-wrap: nowrap !important;
+        width: 100% !important;
+        transform: none !important; /* Wyłączamy wpływ GSAP */
+        gap: 20px;
+        padding: 0 25px 30px 25px !important; /* Padding daje efekt "uciętej" karty */
+        
+        /* Obsługa przewijania palcem */
+        overflow-x: auto !important;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory; /* Włączamy przyciąganie */
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        
+        /* Ukrywamy scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .horizontal-container::-webkit-scrollbar {
+        display: none; /* Ukrywamy scrollbar w Chrome/Safari */
+    }
+
+    .project-card {
+        width: 85vw !important; /* Karta zajmuje 85% szerokości, by widzieć skrawek następnej */
+        max-width: 400px;
+        flex-shrink: 0 !important;
+        scroll-snap-align: center; /* Karta centruje się przy puszczeniu palca */
+        cursor: pointer;
+    }
+
+    #portfolio-cursor {
+        display: none !important;
+    }
 }
 
-@media (max-width: 480px) {
-    /* Ekstremalnie małe ekrany */
-    .btn-text { font-size: 0.8rem; }
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem !important; line-height: 1.1; }
+    .nav-container { padding: 10px 20px; }
 }
