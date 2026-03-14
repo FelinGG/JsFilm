@@ -359,36 +359,40 @@
             </div>
 
         <div class="bg-zinc-50 dark:bg-zinc-900/50 p-8 md:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 reveal-content">
-            <form action="contact.php" method="POST" class="space-y-5" id="kontakt">
+            <form action="contact.php" method="POST" class="space-y-5" id="contact-form" novalidate>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="space-y-2">
+                    <div class="space-y-2 relative">
                         <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">Imię</label>
-                        <input type="text" name="name" required placeholder="Jan Kowalski" 
+                        <input type="text" name="name" id="form-name" required placeholder="Jan Kowalski" 
                             class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white">
+                        <span class="error-msg absolute -bottom-5 left-2 text-[10px] text-red-500 font-bold uppercase tracking-wider opacity-0">To pole jest wymagane</span>
                     </div>
-                    <div class="space-y-2">
+                    <div class="space-y-2 relative">
                         <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">E-mail</label>
-                        <input type="email" name="email" required placeholder="twoj@email.com" 
+                        <input type="email" name="email" id="form-email" required placeholder="twoj@email.com" 
                             class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white">
+                        <span class="error-msg absolute -bottom-5 left-2 text-[10px] text-red-500 font-bold uppercase tracking-wider opacity-0">Niepoprawny format e-mail</span>
                     </div>
                 </div>
             
-                <div class="space-y-2">
+                <div class="space-y-2 relative">
                     <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">Wiadomość</label>
-                    <textarea name="message" required rows="4" placeholder="Opisz swój pomysł..." 
+                    <textarea name="message" id="form-message" required rows="4" placeholder="Opisz swój pomysł..." 
                         class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white resize-none"></textarea>
+                    <span class="error-msg absolute -bottom-5 left-2 text-[10px] text-red-500 font-bold uppercase tracking-wider opacity-0">Napisz krótką wiadomość</span>
                 </div>
             
                 <div class="flex items-start gap-3 py-2">
-                    <input type="checkbox" name="rodo_zgoda" id="rodo" required value="Zaakceptowano" class="mt-1 accent-red-600 w-4 h-4 cursor-pointer">
+                    <input type="checkbox" name="rodo_zgoda" id="rodo" required class="mt-1 accent-red-600 w-4 h-4 cursor-pointer">
                     <label for="rodo" class="text-xs text-zinc-500 leading-relaxed cursor-pointer select-none">
                         Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z polityką prywatności w celu obsługi zapytania. (RODO) <a href="regulamin.html" target="_blank" class="text-red-600 dark:text-red-500 hover:underline font-bold">ZOBACZ REGULAMIN</a>
                     </label>
                 </div>
             
-                <button type="submit" class="w-full py-5 bg-zinc-900 text-white dark:bg-red-600 dark:text-white font-black rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3 group">
-                    WYŚLIJ WIADOMOŚĆ
-                    <i class="fa-solid fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                <button type="submit" id="submit-btn" class="w-full py-5 bg-zinc-900 text-white dark:bg-red-600 dark:text-white font-black rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3 group relative overflow-hidden">
+                    <span class="btn-text">WYŚLIJ WIADOMOŚĆ</span>
+                    <i class="fa-solid fa-paper-plane icon-default group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    <i class="fa-solid fa-check icon-success absolute translate-y-10"></i>
                 </button>
             </form>
         </div>

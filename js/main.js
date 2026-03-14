@@ -132,7 +132,72 @@ const initVideoModal = () => {
     modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 };
 
-// --- 6. START APP ---
+// --- 6. WALIDACJA FORMULARZA ---
+const initFormValidation = () => {
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    if (!form || !submitBtn) return;
+
+    const btnText = submitBtn.querySelector('.btn-text');
+    const iconDefault = submitBtn.querySelector('.icon-default');
+    const iconSuccess = submitBtn.querySelector('.icon-success');
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
+
+    const validateEmail = (email) => {
+        return String(email).toLowerCase().match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+    };
+
+    const showError = (input, show) => {
+        const errorSpan = input.parentElement.querySelector('.error-msg');
+        if (show) {
+            input.classList.add('input-error');
+            if (errorSpan) gsap.to(errorSpan, { opacity: 1, y: 0, duration: 0.3 });
+            gsap.fromTo(input, { x: -5 }, { x: 5, duration: 0.1, repeat: 5, yoyo: true, ease: "linear", onComplete: () => gsap.set(input, {x:0}) });
+        } else {
+            input.classList.remove('input-error');
+            if (errorSpan) gsap.to(errorSpan, { opacity: 0, y: -5, duration: 0.2 });
+        }
+    };
+
+    inputs.forEach(input => {
+        input.addEventListener('blur', () => {
+            if (input.type === 'email') showError(input, !validateEmail(input.value));
+            else if (input.type !== 'checkbox') showError(input, input.value.length < 2);
+        });
+
+        input.addEventListener('input', () => {
+            if (input.classList.contains('input-error')) {
+                if (input.type === 'email' && validateEmail(input.value)) showError(input, false);
+                if (input.type !== 'email' && input.value.length >= 2) showError(input, false);
+            }
+        });
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+
+        inputs.forEach(input => {
+            if (input.type === 'email' && !validateEmail(input.value)) { showError(input, true); isValid = false; }
+            else if (input.type !== 'checkbox' && input.value.length < 2) { showError(input, true); isValid = false; }
+            else if (input.type === 'checkbox' && !input.checked) { 
+                gsap.fromTo(input.parentElement, { x: -5 }, { x: 5, duration: 0.1, repeat: 5, yoyo: true });
+                isValid = false; 
+            }
+        });
+
+        if (isValid) {
+            const tl = gsap.timeline();
+            tl.to([btnText, iconDefault], { y: -50, opacity: 0, duration: 0.3, stagger: 0.1 })
+              .to(submitBtn, { backgroundColor: "#10b981", scale: 1.05, duration: 0.4, ease: "back.out" }, "-=0.2")
+              .set(btnText, { textContent: "WYSŁANO!" })
+              .to(btnText, { y: 0, opacity: 1, duration: 0.3 })
+              .to(iconSuccess, { y: 0, opacity: 1, duration: 0.5, ease: "back.out" }, "-=0.3");
+        }
+    });
+};
+
+// --- 7. START APP ---
 const startApp = () => {
     gsap.to("#progress", {
         width: "100%", 
@@ -149,6 +214,7 @@ const startApp = () => {
                     setupTheme();
                     initCustomCursor();
                     initVideoModal();
+                    initFormValidation(); // Inicjalizacja walidacji
                     
                     gsap.utils.toArray('.reveal-content').forEach(el => {
                         gsap.to(el, {

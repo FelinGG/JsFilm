@@ -44,12 +44,25 @@ body, nav, section, footer, h1, h2, h3, h4, p, .project-card, .nav-container, in
 ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: #84cc16; }
 
-/* Fix dla auto-wypełniania formularzy */
-input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, 
-textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus {
-  -webkit-text-fill-color: inherit;
-  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-  transition: background-color 5000s ease-in-out 0s;
+/* --- FIX DLA AUTO-WYPEŁNIANIA (AUTOFILL) --- */
+/* Zapobiega zmianie koloru tekstu na czarny i tła na jasne przez przeglądarkę */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: white !important; /* Domyślnie biały dla trybu ciemnego */
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: white;
+}
+
+/* Dostosowanie autofill dla trybu jasnego */
+html:not(.dark) input:-webkit-autofill,
+html:not(.dark) textarea:-webkit-autofill {
+    -webkit-text-fill-color: #18181b !important; /* zinc-900 */
+    caret-color: #18181b;
 }
 
 /* Styl dla sekcji Portfolio */
@@ -94,7 +107,7 @@ textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-aut
 }
 
 .logos-slider {
-    padding: 10px 0; /* Mniejszy pionowy padding */
+    padding: 10px 0;
 }
 
 /* Maskowanie krawędzi */
@@ -103,7 +116,7 @@ textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-aut
     content: "";
     position: absolute;
     top: 0;
-    width: 150px; /* Nieco węższy gradient */
+    width: 150px;
     height: 100%;
     z-index: 2;
     pointer-events: none;
@@ -120,7 +133,22 @@ textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-aut
 }
 
 .logos-slide {
-    animation: slideLogos 35s linear infinite; /* Prędkość dostosowana do mniejszego paska */
+    animation: slideLogos 35s linear infinite;
+}
+
+/* --- WALIDACJA FORMULARZA --- */
+.input-error {
+    border-color: #ef4444 !important;
+}
+
+.error-msg {
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.btn-success {
+    background-color: #10b981 !important;
+    border-color: #10b981 !important;
 }
 
 /* RWD dla wideo modala */
@@ -131,4 +159,3 @@ textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-aut
         font-size: 2rem;
     }
 }
-
