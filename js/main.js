@@ -206,7 +206,65 @@ const initFormValidation = () => {
     });
 };
 
-// --- 7. START APP ---
+// --- 7. MOBILNE SLIDERY (KROPKI) ---
+const initMobileSliders = () => {
+    // Uniwersalna funkcja budująca kropki dla podanego slidera
+    const setupDots = (containerSelector, itemSelector, dotsContainerSelector) => {
+        const container = document.querySelector(containerSelector);
+        const items = document.querySelectorAll(itemSelector);
+        const dotsContainer = document.querySelector(dotsContainerSelector);
+
+        if (!container || !items.length || !dotsContainer) return;
+
+        // Tworzenie kropek w locie
+        dotsContainer.innerHTML = '';
+        items.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'slider-dot';
+            if (i === 0) dot.classList.add('active');
+            
+            // Po kliknięciu w kropkę przewijamy do odpowiedniego elementu
+            dot.addEventListener('click', () => {
+                // Obliczamy pozycję z uwzględnieniem paddingu kontenera
+                const scrollPos = items[i].offsetLeft - container.offsetLeft - 25; 
+                container.scrollTo({ left: scrollPos, behavior: 'smooth' });
+            });
+            
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+
+        // Nasłuchujemy przewijania, aby zaktualizować status aktywnej kropki
+        container.addEventListener('scroll', () => {
+            let activeIndex = 0;
+            let minDistance = Infinity;
+            
+            // Wirtualny środek widocznej części kontenera
+            const containerCenter = container.scrollLeft + container.clientWidth / 2;
+
+            items.forEach((item, index) => {
+                const itemCenter = (item.offsetLeft - container.offsetLeft) + item.clientWidth / 2;
+                const distance = Math.abs(containerCenter - itemCenter);
+                
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    activeIndex = index;
+                }
+            });
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        }, { passive: true }); // Usprawnienie wydajności scrollowania
+    };
+
+    // Inicjujemy dla obu sekcji
+    setupDots('.offer-container', '.offer-card', '#oferta-dots');
+    setupDots('.horizontal-container', '.project-card', '#portfolio-dots');
+};
+
+// --- 8. START APP ---
 const startApp = () => {
     gsap.to("#progress", {
         width: "100%", 
@@ -223,7 +281,8 @@ const startApp = () => {
                     setupTheme();
                     initCustomCursor();
                     initVideoModal();
-                    initFormValidation(); // Inicjalizacja walidacji
+                    initFormValidation(); 
+                    initMobileSliders(); // Uruchamiamy logikę kropek
                     
                     gsap.utils.toArray('.reveal-content').forEach(el => {
                         gsap.to(el, {

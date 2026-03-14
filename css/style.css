@@ -121,78 +121,86 @@ html:not(.dark) textarea:-webkit-autofill {
 .error-msg { pointer-events: none; will-change: transform, opacity; }
 .btn-success { background-color: #10b981 !important; border-color: #10b981 !important; }
 
-/* --- MEDIA QUERIES (MOBILE FIXES) --- */
+/* --- MOBILNE KROPKI (DOTS) --- */
+.slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background-color: #d4d4d8; /* zinc-300 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
 
-@media (max-width: 1024px) {
-    /* Na tabletach i telefonach wyłączamy horyzontalny scroll na rzecz pionowego */
-    .portfolio-viewport {
-        height: auto;
-        padding: 80px 0;
-    }
+.dark .slider-dot {
+    background-color: #3f3f46; /* zinc-700 */
+}
 
-    .horizontal-container {
-        flex-direction: column;
-        width: 100% !important;
-        transform: none !important; /* Blokujemy działanie GSAP */
-        gap: 40px;
-        padding: 0 20px;
-    }
-
-    .project-card {
-        width: 100% !important; /* Karta zajmuje całą szerokość */
-        max-width: 500px;
-        cursor: pointer; /* Przywracamy kursor na dotyk */
-    }
-
-    #portfolio-cursor {
-        display: none !important; /* Ukrywamy kursor śledzący */
-    }
+.slider-dot.active {
+    background-color: #dc2626 !important; /* red-600 */
+    width: 24px;
 }
 
 /* --- MEDIA QUERIES (MOBILE FIXES) --- */
-
 @media (max-width: 1024px) {
+    /* Ustawienia dla Portfolio */
     .portfolio-viewport {
         height: auto;
-        padding: 60px 0;
+        padding: 60px 0 20px 0;
         display: block;
     }
 
     .horizontal-container {
         display: flex !important;
-        flex-direction: row !important; /* Karty obok siebie */
+        flex-direction: row !important;
         flex-wrap: nowrap !important;
         width: 100% !important;
-        transform: none !important; /* Wyłączamy wpływ GSAP */
+        transform: none !important;
         gap: 20px;
-        padding: 0 25px 30px 25px !important; /* Padding daje efekt "uciętej" karty */
-        
-        /* Obsługa przewijania palcem */
+        padding: 0 25px 30px 25px !important;
         overflow-x: auto !important;
         overflow-y: hidden;
-        scroll-snap-type: x mandatory; /* Włączamy przyciąganie */
+        scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
-        
-        /* Ukrywamy scrollbar */
         scrollbar-width: none;
         -ms-overflow-style: none;
     }
 
-    .horizontal-container::-webkit-scrollbar {
-        display: none; /* Ukrywamy scrollbar w Chrome/Safari */
-    }
+    .horizontal-container::-webkit-scrollbar { display: none; }
 
     .project-card {
-        width: 85vw !important; /* Karta zajmuje 85% szerokości, by widzieć skrawek następnej */
+        width: 85vw !important;
         max-width: 400px;
         flex-shrink: 0 !important;
-        scroll-snap-align: center; /* Karta centruje się przy puszczeniu palca */
+        scroll-snap-align: center;
         cursor: pointer;
     }
 
-    #portfolio-cursor {
-        display: none !important;
+    #portfolio-cursor { display: none !important; }
+
+    /* Ustawienia dla Oferty */
+    .offer-container {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        gap: 20px;
+        padding: 20px 25px 30px 25px !important;
+        scrollbar-width: none;
+    }
+
+    .offer-container::-webkit-scrollbar { display: none; }
+
+    .offer-card {
+        width: 85vw !important; 
+        max-width: 320px;
+        flex-shrink: 0 !important;
+        scroll-snap-align: center;
+        height: auto;
     }
 }
 

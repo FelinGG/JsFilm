@@ -29,13 +29,8 @@
         <div class="nav-container max-w-7xl mx-auto px-6 py-4 flex justify-between items-center bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 rounded-full shadow-lg transition-all duration-300">
             
             <a href="#" class="transition-transform hover:scale-105 active:scale-95 flex items-center">
-                <img src="./assets/logos/jslogo.png" 
-                     alt="JS FILM Logo" 
-                     class="h-16 w-auto object-contain dark:hidden">
-
-                <img src="./assets/logos/jslogo-light.png" 
-                     alt="JS FILM Logo" 
-                     class="h-16 w-auto object-contain hidden dark:block">
+                <img src="./assets/logos/jslogo.png" alt="JS FILM Logo" class="h-16 w-auto object-contain dark:hidden">
+                <img src="./assets/logos/jslogo-light.png" alt="JS FILM Logo" class="h-16 w-auto object-contain hidden dark:block">
             </a>
 
             <div class="hidden md:flex items-center gap-6 text-[11px] font-bold uppercase tracking-[2px] text-zinc-800 dark:text-zinc-200">
@@ -93,7 +88,7 @@
         </div>
     </section>
 
-<section id="oferta" class="py-32 relative z-20 bg-white dark:bg-zinc-900/50 border-y border-zinc-200 dark:border-zinc-800 transition-colors duration-700">
+    <section id="oferta" class="pt-32 pb-20 relative z-20 bg-white dark:bg-zinc-900/50 border-y border-zinc-200 dark:border-zinc-800 transition-colors duration-700">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-content">
                 <div>
@@ -102,7 +97,7 @@
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8">
+            <div class="offer-container grid lg:grid-cols-3 gap-8">
                 <div class="offer-card group relative overflow-hidden rounded-[40px] border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 min-h-[480px] flex flex-col items-center justify-center p-10 cursor-pointer reveal-content shadow-lg transition-all duration-500">
                     <div class="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
                         <div class="absolute inset-0 bg-zinc-950/80 z-10"></div>
@@ -163,11 +158,13 @@
                     </div>
                 </div>
             </div>
+
+            <div id="oferta-dots" class="flex justify-center gap-2 mt-4 lg:hidden relative z-20"></div>
         </div>
     </section>
 
-<section id="portfolio" class="relative bg-zinc-100 dark:bg-zinc-950/20">
-        <div class="portfolio-viewport min-h-screen flex flex-col justify-center overflow-hidden py-20">
+    <section id="portfolio" class="relative bg-zinc-100 dark:bg-zinc-950/20">
+        <div class="portfolio-viewport min-h-screen flex flex-col justify-center overflow-hidden py-10">
             
             <div class="px-6 mb-12 flex flex-col md:flex-row justify-between items-end max-w-7xl mx-auto w-full z-10 relative reveal-content">
                 <div>
@@ -277,6 +274,9 @@
 
                 </div>
             </div>
+            
+            <div id="portfolio-dots" class="flex justify-center gap-2 mt-4 lg:hidden relative z-20"></div>
+
         </div>
     </section>
 
