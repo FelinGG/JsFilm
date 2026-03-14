@@ -286,8 +286,15 @@ const startApp = () => {
                     
                     gsap.utils.toArray('.reveal-content').forEach(el => {
                         gsap.to(el, {
-                            scrollTrigger: { trigger: el, start: "top 90%" },
-                            opacity: 1, y: 0, duration: 1
+                            scrollTrigger: { 
+                                trigger: el, 
+                                start: "top 100%", // Animacja zacznie się wcześniej (gdy tylko góra karty pojawi się na ekranie)
+                                toggleActions: "play none none none" 
+                            },
+                            opacity: 1, 
+                            y: 0, 
+                            duration: 0.6, // Krótszy czas trwania (było 1s) sprawia, że ładowanie wydaje się szybsze
+                            ease: "power2.out"
                         });
                     });
                 },
