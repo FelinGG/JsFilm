@@ -350,12 +350,8 @@
             </div>
 
         <div class="bg-zinc-50 dark:bg-zinc-900/50 p-8 md:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 reveal-content">
-            <form action="https://formsubmit.co/piterson050406@gmail.com" method="POST" class="space-y-5">
-                <input type="text" name="_honey" style="display:none">
-
-                <input type="hidden" name="_subject" value="Nowe zapytanie ze strony JS FILM">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false"> <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <form action="contact.php" method="POST" class="space-y-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div class="space-y-2">
                         <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">Imię</label>
                         <input type="text" name="name" required placeholder="Jan Kowalski" 
@@ -367,7 +363,7 @@
                             class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white">
                     </div>
                 </div>
-
+            
                 <div class="space-y-2">
                     <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">Wiadomość</label>
                     <textarea name="message" required rows="4" placeholder="Opisz swój pomysł..." 
