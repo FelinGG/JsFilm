@@ -63,7 +63,7 @@ const initHorizontal = () => {
             enabled: window.innerWidth > 1024 
         }
     });
-    
+
     window.addEventListener("resize", () => {
         ScrollTrigger.refresh();
     });
