@@ -1,7 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Caveat:wght@700&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
 .handwritten { font-family: 'Caveat', cursive; text-transform: none; }
 
 /* Płynne przejścia dla motywu */
@@ -21,7 +21,7 @@ body, nav, section, footer, h1, h2, h3, h4, p, .project-card, .nav-container, in
 }
 .nav-link:hover { color: #ff3131; background: rgba(255, 28, 28, 0.1); }
 
-/* Horizontal Scroll */
+/* Horizontal Scroll Wrapper */
 .horizontal-wrapper {
     overflow: hidden;
     width: 100%;
@@ -45,23 +45,21 @@ body, nav, section, footer, h1, h2, h3, h4, p, .project-card, .nav-container, in
 ::-webkit-scrollbar-thumb:hover { background: #84cc16; }
 
 /* --- FIX DLA AUTO-WYPEŁNIANIA (AUTOFILL) --- */
-/* Zapobiega zmianie koloru tekstu na czarny i tła na jasne przez przeglądarkę */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus {
-    -webkit-text-fill-color: white !important; /* Domyślnie biały dla trybu ciemnego */
+    -webkit-text-fill-color: white !important;
     -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
     transition: background-color 5000s ease-in-out 0s;
     caret-color: white;
 }
 
-/* Dostosowanie autofill dla trybu jasnego */
 html:not(.dark) input:-webkit-autofill,
 html:not(.dark) textarea:-webkit-autofill {
-    -webkit-text-fill-color: #18181b !important; /* zinc-900 */
+    -webkit-text-fill-color: #18181b !important;
     caret-color: #18181b;
 }
 
@@ -91,26 +89,17 @@ html:not(.dark) textarea:-webkit-autofill {
     transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-}
+.project-card:hover { transform: translateY(-10px); }
+.project-card:active { transform: scale(0.98); }
 
-/* Efekt aktywnego kliknięcia w kartę */
-.project-card:active {
-    transform: scale(0.98);
-}
-
-/* Slider Logotypów - Animacja */
+/* Slider Logotypów */
 @keyframes slideLogos {
     from { transform: translateX(0); }
     to { transform: translateX(-100%); }
 }
 
-.logos-slider {
-    padding: 10px 0;
-}
+.logos-slider { padding: 10px 0; position: relative; }
 
-/* Maskowanie krawędzi */
 .logos-slider::before,
 .logos-slider::after {
     content: "";
@@ -122,40 +111,66 @@ html:not(.dark) textarea:-webkit-autofill {
     pointer-events: none;
 }
 
-.logos-slider::before {
-    left: 0;
-    background: linear-gradient(to right, #09090b 0%, transparent 100%);
-}
+.logos-slider::before { left: 0; background: linear-gradient(to right, #09090b 0%, transparent 100%); }
+.logos-slider::after { right: 0; background: linear-gradient(to left, #09090b 0%, transparent 100%); }
 
-.logos-slider::after {
-    right: 0;
-    background: linear-gradient(to left, #09090b 0%, transparent 100%);
-}
-
-.logos-slide {
-    animation: slideLogos 35s linear infinite;
-}
+.logos-slide { animation: slideLogos 35s linear infinite; }
 
 /* --- WALIDACJA FORMULARZA --- */
-.input-error {
-    border-color: #ef4444 !important;
+.input-error { border-color: #ef4444 !important; }
+.error-msg { pointer-events: none; will-change: transform, opacity; }
+.btn-success { background-color: #10b981 !important; border-color: #10b981 !important; }
+
+/* --- MEDIA QUERIES (MOBILE FIXES) --- */
+
+@media (max-width: 1024px) {
+    /* Na tabletach i telefonach wyłączamy horyzontalny scroll na rzecz pionowego */
+    .portfolio-viewport {
+        height: auto;
+        padding: 80px 0;
+    }
+
+    .horizontal-container {
+        flex-direction: column;
+        width: 100% !important;
+        transform: none !important; /* Blokujemy działanie GSAP */
+        gap: 40px;
+        padding: 0 20px;
+    }
+
+    .project-card {
+        width: 100% !important; /* Karta zajmuje całą szerokość */
+        max-width: 500px;
+        cursor: pointer; /* Przywracamy kursor na dotyk */
+    }
+
+    #portfolio-cursor {
+        display: none !important; /* Ukrywamy kursor śledzący */
+    }
 }
 
-.error-msg {
-    pointer-events: none;
-    will-change: transform, opacity;
-}
-
-.btn-success {
-    background-color: #10b981 !important;
-    border-color: #10b981 !important;
-}
-
-/* RWD dla wideo modala */
 @media (max-width: 768px) {
+    /* Mobilne poprawki dla tekstów i nawigacji */
+    h1 { font-size: 2.5rem !important; line-height: 1.1; }
+    .nav-container { padding: 10px 20px; }
+    
+    /* Ukrywamy gradienty na sliderze logo, żeby nie zasłaniały za dużo na małym ekranie */
+    .logos-slider::before, .logos-slider::after { width: 50px; }
+
     #close-modal {
         top: 20px;
         right: 20px;
         font-size: 2rem;
     }
+
+    /* Formularz - paddingi */
+    form { padding: 10px; }
+    
+    /* Sekcje procesowe / karty ofert */
+    .reveal-content { transform: translateY(20px); }
+}
+
+@media (max-width: 480px) {
+    /* Ekstremalnie małe ekrany */
+    .btn-text { font-size: 0.8rem; }
 }

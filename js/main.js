@@ -44,7 +44,6 @@ const initThree = () => {
     animate();
 };
 
-// --- 2. HORIZONTAL SCROLL ---
 const initHorizontal = () => {
     const container = document.querySelector(".horizontal-container");
     const portfolioSection = document.querySelector("#portfolio");
@@ -60,7 +59,13 @@ const initHorizontal = () => {
             pin: true,
             scrub: 1,
             invalidateOnRefresh: true,
+            // Funkcja będzie aktywna tylko na ekranach powyżej 1024px
+            enabled: window.innerWidth > 1024 
         }
+    });
+    
+    window.addEventListener("resize", () => {
+        ScrollTrigger.refresh();
     });
 };
 
