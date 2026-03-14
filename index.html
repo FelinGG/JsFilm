@@ -93,7 +93,7 @@
         </div>
     </section>
 
-    <section id="oferta" class="py-32 relative z-20 bg-white dark:bg-zinc-900/50 border-y border-zinc-200 dark:border-zinc-800 transition-colors duration-700">
+<section id="oferta" class="py-32 relative z-20 bg-white dark:bg-zinc-900/50 border-y border-zinc-200 dark:border-zinc-800 transition-colors duration-700">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-content">
                 <div>
@@ -103,53 +103,62 @@
             </div>
 
             <div class="grid lg:grid-cols-3 gap-8">
-                <div class="offer-card group relative overflow-hidden rounded-[40px] border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 min-h-[480px] flex flex-col justify-end p-10 cursor-pointer reveal-content shadow-lg">
+                <div class="offer-card group relative overflow-hidden rounded-[40px] border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 min-h-[480px] flex flex-col items-center justify-center p-10 cursor-pointer reveal-content shadow-lg transition-all duration-500">
                     <div class="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                        <div class="absolute inset-0 bg-zinc-950/80 z-10 transition-colors duration-500"></div>
-                        <img src="./assets/images/dron_bg.jpg" onerror="this.src='https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=1000'" class="w-full h-full object-cover transform scale-125 group-hover:scale-100 transition-transform duration-1000 ease-out" alt="Dron">
+                        <div class="absolute inset-0 bg-zinc-950/80 z-10"></div>
+                        <img src="./assets/images/dron_bg.jpg" onerror="this.src='https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=1000'" class="w-full h-full object-cover transform scale-125 group-hover:scale-100 transition-transform duration-1000">
                     </div>
-                    <div class="relative z-20 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-xl mb-6 opacity-0 group-hover:opacity-100 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 shadow-[0_0_30px_rgba(220,38,38,0.4)]">
-                            <i class="fa-solid fa-location-crosshairs"></i>
-                        </div>
-                        <h3 class="text-3xl font-black mb-4 text-zinc-900 dark:text-white group-hover:text-white transition-colors duration-300">Zdjęcia z drona</h3>
-                        <p class="text-zinc-500 group-hover:text-zinc-300 transition-colors duration-300 leading-relaxed">Zdjęcia oraz ujęcia z drona. Pokaż swoim odbiorcom zupełnie inną perspektywę i wyróżnij się na tle konkurencji!</p>
-                        <div class="mt-8 overflow-hidden h-0 group-hover:h-[24px] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
-                            <a href="#kontakt" class="text-red-500 font-bold uppercase tracking-[2px] text-[11px] flex items-center gap-3 hover:text-white transition-colors">Zapytaj o wycenę <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="relative z-20 flex flex-col items-center transition-all duration-500 group-hover:opacity-0 group-hover:scale-50">
+                        <img src="assets/icons/drone-icon.png" alt="Dron" class="w-24 h-auto mb-6 opacity-80 dark:invert">
+                        <h3 class="text-2xl font-black text-zinc-900 dark:text-white uppercase tracking-tighter">Zdjęcia z drona</h3>
+                    </div>
+                    <div class="absolute inset-0 z-30 p-10 flex flex-col justify-end opacity-0 group-hover:opacity-100 translate-y-10 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                        <h3 class="text-3xl font-black mb-4 text-white">Zdjęcia z drona</h3>
+                        <p class="text-zinc-300 leading-relaxed">Zdjęcia oraz ujęcia z drona. Pokaż swoim odbiorcom zupełnie inną perspektywę!</p>
+                        <div class="mt-8">
+                            <a href="#kontakt" class="text-red-500 font-bold uppercase tracking-[2px] text-[11px] flex items-center gap-3 hover:gap-5 transition-all">
+                                Zapytaj o wycenę <i class="fa-solid fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="offer-card group relative overflow-hidden rounded-[40px] border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 min-h-[480px] flex flex-col justify-end p-10 cursor-pointer reveal-content shadow-lg">
+                <div class="offer-card group relative overflow-hidden rounded-[40px] border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 min-h-[480px] flex flex-col items-center justify-center p-10 cursor-pointer reveal-content shadow-lg transition-all duration-500">
                     <div class="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                        <div class="absolute inset-0 bg-zinc-950/80 z-10 transition-colors duration-500"></div>
-                        <img src="./assets/images/spacer_bg.jpg" onerror="this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000'" class="w-full h-full object-cover transform scale-125 group-hover:scale-100 transition-transform duration-1000 ease-out" alt="Spacer 3D">
+                        <div class="absolute inset-0 bg-zinc-950/80 z-10"></div>
+                        <img src="./assets/images/spacer_bg.jpg" onerror="this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000'" class="w-full h-full object-cover transform scale-125 group-hover:scale-100 transition-transform duration-1000">
                     </div>
-                    <div class="relative z-20 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-xl mb-6 opacity-0 group-hover:opacity-100 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 shadow-[0_0_30px_rgba(220,38,38,0.4)]">
-                            <i class="fa-solid fa-vr-cardboard"></i>
-                        </div>
-                        <h3 class="text-3xl font-black mb-4 text-zinc-900 dark:text-white group-hover:text-white transition-colors duration-300">Wirtualny spacer</h3>
-                        <p class="text-zinc-500 group-hover:text-zinc-300 transition-colors duration-300 leading-relaxed">Chcesz oprowadzić kogoś po swojej firmie, domku letniskowym lub masz nieruchomość na sprzedaż? To świetna alternatywa!</p>
-                        <div class="mt-8 overflow-hidden h-0 group-hover:h-[24px] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
-                            <a href="#kontakt" class="text-red-500 font-bold uppercase tracking-[2px] text-[11px] flex items-center gap-3 hover:text-white transition-colors">Zapytaj o wycenę <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="relative z-20 flex flex-col items-center transition-all duration-500 group-hover:opacity-0 group-hover:scale-50">
+                        <img src="assets/icons/vr-icon.png" alt="Spacer 3D" class="w-24 h-auto mb-6 opacity-80 dark:invert">
+                        <h3 class="text-2xl font-black text-zinc-900 dark:text-white uppercase tracking-tighter">Wirtualny spacer</h3>
+                    </div>
+                    <div class="absolute inset-0 z-30 p-10 flex flex-col justify-end opacity-0 group-hover:opacity-100 translate-y-10 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                        <h3 class="text-3xl font-black mb-4 text-white">Wirtualny spacer</h3>
+                        <p class="text-zinc-300 leading-relaxed">Chcesz oprowadzić kogoś po swojej firmie? To świetna alternatywa dla klasycznego wideo!</p>
+                        <div class="mt-8">
+                            <a href="#kontakt" class="text-red-500 font-bold uppercase tracking-[2px] text-[11px] flex items-center gap-3 hover:gap-5 transition-all">
+                                Zapytaj o wycenę <i class="fa-solid fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="offer-card group relative overflow-hidden rounded-[40px] border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 min-h-[480px] flex flex-col justify-end p-10 cursor-pointer reveal-content shadow-lg">
+                <div class="offer-card group relative overflow-hidden rounded-[40px] border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 min-h-[480px] flex flex-col items-center justify-center p-10 cursor-pointer reveal-content shadow-lg transition-all duration-500">
                     <div class="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                        <div class="absolute inset-0 bg-zinc-950/80 z-10 transition-colors duration-500"></div>
-                        <img src="./assets/images/kamera_bg.jpg" onerror="this.src='https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=1000'" class="w-full h-full object-cover transform scale-125 group-hover:scale-100 transition-transform duration-1000 ease-out" alt="Kamera">
+                        <div class="absolute inset-0 bg-zinc-950/80 z-10"></div>
+                        <img src="./assets/images/kamera_bg.jpg" onerror="this.src='https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=1000'" class="w-full h-full object-cover transform scale-125 group-hover:scale-100 transition-transform duration-1000">
                     </div>
-                    <div class="relative z-20 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-xl mb-6 opacity-0 group-hover:opacity-100 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 shadow-[0_0_30px_rgba(220,38,38,0.4)]">
-                            <i class="fa-solid fa-clapperboard"></i>
-                        </div>
-                        <h3 class="text-3xl font-black mb-4 text-zinc-900 dark:text-white group-hover:text-white transition-colors duration-300">Reklamy & Kursy</h3>
-                        <p class="text-zinc-500 group-hover:text-zinc-300 transition-colors duration-300 leading-relaxed">Materiały reklamowe, kursy online, filmy wizerunkowe, relacje z wydarzeń... Napisz do nas, a my zajmiemy się resztą!</p>
-                        <div class="mt-8 overflow-hidden h-0 group-hover:h-[24px] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
-                            <a href="#kontakt" class="text-red-500 font-bold uppercase tracking-[2px] text-[11px] flex items-center gap-3 hover:text-white transition-colors">Omówmy projekt <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="relative z-20 flex flex-col items-center transition-all duration-500 group-hover:opacity-0 group-hover:scale-50">
+                        <img src="assets/icons/camera-icon.png" alt="Reklamy" class="w-24 h-auto mb-6 opacity-80 dark:invert">
+                        <h3 class="text-2xl font-black text-zinc-900 dark:text-white uppercase tracking-tighter">Reklamy & Kursy</h3>
+                    </div>
+                    <div class="absolute inset-0 z-30 p-10 flex flex-col justify-end opacity-0 group-hover:opacity-100 translate-y-10 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                        <h3 class="text-3xl font-black mb-4 text-white">Reklamy & Kursy</h3>
+                        <p class="text-zinc-300 leading-relaxed">Materiały reklamowe, kursy online, filmy wizerunkowe... Napisz do nas!</p>
+                        <div class="mt-8">
+                            <a href="#kontakt" class="text-red-500 font-bold uppercase tracking-[2px] text-[11px] flex items-center gap-3 hover:gap-5 transition-all">
+                                Omówmy projekt <i class="fa-solid fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -350,7 +359,7 @@
             </div>
 
         <div class="bg-zinc-50 dark:bg-zinc-900/50 p-8 md:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 reveal-content">
-            <form action="contact.php" method="POST" class="space-y-5">
+            <form action="contact.php" method="POST" class="space-y-5" id="kontakt">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div class="space-y-2">
                         <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">Imię</label>
@@ -373,7 +382,7 @@
                 <div class="flex items-start gap-3 py-2">
                     <input type="checkbox" name="rodo_zgoda" id="rodo" required value="Zaakceptowano" class="mt-1 accent-red-600 w-4 h-4 cursor-pointer">
                     <label for="rodo" class="text-xs text-zinc-500 leading-relaxed cursor-pointer select-none">
-                        Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z polityką prywatności w celu obsługi zapytania. (RODO)
+                        Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z polityką prywatności w celu obsługi zapytania. (RODO) <a href="regulamin.html" target="_blank" class="text-red-600 dark:text-red-500 hover:underline font-bold">ZOBACZ REGULAMIN</a>
                     </label>
                 </div>
             

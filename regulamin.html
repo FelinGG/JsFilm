@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulamin i Polityka Prywatności | JS FILM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+</head>
+<body class="bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-700 overflow-x-hidden">
+
+    <div id="canvas-container" class="fixed inset-0 z-10 pointer-events-none opacity-60"></div>
+
+    <nav id="navbar" class="fixed top-0 w-full z-50 p-6 transition-all duration-300">
+        <div class="nav-container max-w-7xl mx-auto px-6 py-4 flex justify-between items-center bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 rounded-full shadow-lg transition-all duration-300">
+            
+            <a href="index.html" class="transition-transform hover:scale-105 active:scale-95 flex items-center">
+                <img src="./assets/logos/jslogo.png" alt="JS FILM Logo" class="h-16 w-auto object-contain dark:hidden">
+                <img src="./assets/logos/jslogo-light.png" alt="JS FILM Logo" class="h-16 w-auto object-contain hidden dark:block">
+            </a>
+
+            <div class="hidden md:flex items-center gap-6 text-[11px] font-bold uppercase tracking-[2px] text-zinc-800 dark:text-zinc-200">
+                <a href="index.html#o-mnie" class="nav-link">O mnie</a>
+                <a href="index.html#oferta" class="nav-link">Oferta</a>
+                <a href="index.html#portfolio" class="nav-link">Realizacje</a>
+                <div class="w-px h-6 bg-zinc-300 dark:bg-zinc-700 transition-colors"></div>
+                
+                <button id="theme-toggle" class="relative w-16 h-8 bg-zinc-200 dark:bg-zinc-800 rounded-full transition-all duration-500 group cursor-pointer overflow-hidden shadow-inner">
+                    <div class="absolute inset-0 flex justify-between items-center px-2 text-[10px] z-0">
+                        <i class="fa-solid fa-sun text-amber-500 opacity-100 dark:opacity-20 transition-opacity duration-500"></i>
+                        <i class="fa-solid fa-moon text-blue-300 opacity-20 dark:opacity-100 transition-opacity duration-500"></i>
+                    </div>
+                    
+                    <div class="dot absolute left-1 top-1 w-6 h-6 bg-white dark:bg-zinc-900 rounded-full shadow-md transition-transform duration-500 z-10 flex items-center justify-center dark:translate-x-8">
+                        <i class="fa-solid fa-sun text-amber-500 text-[12px] block dark:hidden"></i>
+                        <i class="fa-solid fa-moon text-blue-400 text-[12px] hidden dark:block"></i>
+                    </div>
+                </button>
+
+                <a href="index.html#kontakt" class="bg-zinc-900 text-white dark:bg-white dark:text-black px-8 py-3 rounded-full hover:bg-red-600 hover:text-white dark:hover:bg-red-500 transition-all shadow-md hover:scale-105">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-20 pt-48 pb-32 min-h-[60vh] bg-zinc-50 dark:bg-transparent transition-colors duration-700">
+        <div class="max-w-4xl mx-auto px-6 w-full !opacity-100 !transform-none">
+            
+            <div class="mb-12 border-b border-zinc-200 dark:border-zinc-800 pb-8">
+                <p class="text-red-600 dark:text-red-500 font-mono text-sm tracking-[3px] uppercase mb-4">/ Informacje Prawne</p>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tighter">Regulamin i <br><span class="text-red-600">Polityka Prywatności.</span></h1>
+            </div>
+
+            <div class="prose prose-lg dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed">
+                <p class="mb-8 font-medium text-zinc-800 dark:text-zinc-200">
+                    Zgodnie z art. 13 ust. 1 i ust. 2 RODO (czyli Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE) informuję, iż:
+                </p>
+
+                <ul class="space-y-6 list-none pl-0">
+                    <li class="relative pl-6">
+                        <span class="absolute left-0 top-2 w-2 h-2 rounded-full bg-red-600"></span>
+                        Administratorem Twoich danych osobowych jest Salon kosmetyki profesjonalnej PureBeauty – Sylwia Pichlak z siedzibą we Wrocławiu, ul. Śrutowa 14 lu. 2.
+                    </li>
+                    <li class="relative pl-6">
+                        <span class="absolute left-0 top-2 w-2 h-2 rounded-full bg-red-600"></span>
+                        Twoje dane osobowe podawane w formularzu kontaktowym będą przetwarzane wyłącznie do podjęcia określonych działań na Twoje żądanie, np. w celu udzielenia odpowiedzi na Twoje pytanie wysłane drogą elektroniczną poprzez zapis na stronie Administratora.
+                    </li>
+                    <li class="relative pl-6">
+                        <span class="absolute left-0 top-2 w-2 h-2 rounded-full bg-red-600"></span>
+                        Podanie danych osobowych jest dobrowolne, ale niezbędne do przesłania odpowiedzi na Twoją wiadomość.
+                    </li>
+                    <li class="relative pl-6">
+                        <span class="absolute left-0 top-2 w-2 h-2 rounded-full bg-red-600"></span>
+                        Twoje dane osobowe będą przetwarzane wyłącznie przez okres niezbędny do udzielania odpowiedzi, a następnie zostaną usunięte, chyba że zdecydujesz się korzystać z naszych usług i pozostawisz je na innej podstawie i we wskazanym Ci celu.
+                    </li>
+                    <li class="relative pl-6">
+                        <span class="absolute left-0 top-2 w-2 h-2 rounded-full bg-red-600"></span>
+                        Twoje dane osobowe będą udostępnianie innym odbiorcom danych, takim jak serwisy świadczące usługi utrzymania systemu informatycznego i hostingu, dostawcę usługi poczty elektronicznej itp., jeśli okaże się to konieczne.
+                    </li>
+                    <li class="relative pl-6">
+                        <span class="absolute left-0 top-2 w-2 h-2 rounded-full bg-red-600"></span>
+                        Masz prawo dostępu do treści swoich danych, ich poprawiania, ich sprostowania, usunięcia lub ograniczenia przetwarzania, prawo do wniesienia sprzeciwu wobec przetwarzania, prawo do przenoszenia danych, prawo żądania dostępu do danych, a także prawo wniesienia skargi do organu nadzorczego, jeśli uznasz, że przetwarzanie Twoich danych jest niezgodne z aktualnie obowiązującymi przepisami prawa w zakresie ochrony danych. Przysługuje Ci też prawo do bycia zapomnianym, jeśli dalsze przetwarzanie nie będzie przewidziane przez aktualnie obowiązujące przepisy prawa.
+                    </li>
+                    <li class="relative pl-6">
+                        <span class="absolute left-0 top-2 w-2 h-2 rounded-full bg-red-600"></span>
+                        Posiadasz też prawo do cofnięcia zgody w dowolnym momencie. Cofnięcie zgody pozostaje bez wpływu na przetwarzanie danych, którego dokonano na podstawie zgody przed jej cofnięciem.
+                    </li>
+                    <li class="relative pl-6">
+                        <span class="absolute left-0 top-2 w-2 h-2 rounded-full bg-red-600"></span>
+                        Twoje dane nie będą przetwarzane w sposób zautomatyzowany, w tym również w formie profilowania.
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800">
+                <a href="index.html" class="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[2px] text-zinc-900 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i> Wróć do strony głównej
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white dark:bg-zinc-950 py-20 border-t border-zinc-200 dark:border-zinc-900 transition-colors duration-700 relative z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col items-center text-center !opacity-100 !transform-none">
+                
+                <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-6">Zróbmy razem coś <span class="text-red-600 italic handwritten">wyjątkowego</span>.</h2>
+                <p class="text-zinc-500 dark:text-zinc-400 max-w-2xl mb-12 leading-relaxed text-lg">
+                    Masz projekt w głowie? Potrzebujesz strategicznego wideo, które sprzedaje? Napisz do mnie – odpowiadam zazwyczaj w ciągu 24h.
+                </p>
+                
+                <div class="flex flex-col md:flex-row justify-center gap-8 mb-16">
+                    <a href="mailto:kontakt@twojadomena.pl" class="flex items-center gap-4 text-zinc-900 dark:text-white hover:text-red-600 transition-colors group">
+                        <div class="w-12 h-12 rounded-full bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center group-hover:bg-red-600/10 transition-all">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <span class="font-bold">kontakt@twojadomena.pl</span>
+                    </a>
+                    <div class="flex items-center gap-4 text-zinc-900 dark:text-white">
+                        <div class="w-12 h-12 rounded-full bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span class="font-bold">Lokalizacja - do wpisania</span>
+                    </div>
+                </div>
+
+                <div class="w-full max-w-xs mx-auto border-t border-zinc-200 dark:border-zinc-800 pt-12">
+                    <div class="flex justify-center gap-6 mb-8">
+                        <a href="https://www.facebook.com/jsfilmkubapachowicz" target="_blank" rel="noopener" class="w-12 h-12 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-black flex items-center justify-center hover:bg-red-600 hover:text-white dark:hover:bg-red-600 dark:hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                            <i class="fa-brands fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/jsfilmpl/" target="_blank" rel="noopener" class="w-12 h-12 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-black flex items-center justify-center hover:bg-red-600 hover:text-white dark:hover:bg-red-600 dark:hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.youtube.com/user/kubapachowicz" target="_blank" rel="noopener" class="w-12 h-12 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-black flex items-center justify-center hover:bg-red-600 hover:text-white dark:hover:bg-red-600 dark:hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                            <i class="fa-brands fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-sm text-zinc-400 uppercase tracking-widest">
+                        &copy; <span id="year"></span> JS FILM. Wszelkie prawa zastrzeżone.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <div id="portfolio-cursor" class="fixed w-20 h-20 bg-red-600 rounded-full flex items-center justify-center text-white text-[10px] uppercase font-bold pointer-events-none z-[300] scale-0 mix-blend-difference"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

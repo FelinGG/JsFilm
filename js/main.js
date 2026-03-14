@@ -48,7 +48,6 @@ const initThree = () => {
 const initHorizontal = () => {
     const container = document.querySelector(".horizontal-container");
     const portfolioSection = document.querySelector("#portfolio");
-    
     if (!container || !portfolioSection) return;
 
     gsap.to(container, {
@@ -75,41 +74,16 @@ const setupTheme = () => {
         const isDark = html.classList.contains('dark');
         if (points) {
             gsap.to(points.material.color, {
-                // ZMIANA TUTAJ (wartości RGB od 0 do 1):
-                r: isDark ? 1 : 0.6,    // Intensywna czerwień w Dark, stłumiona w Light
-                g: isDark ? 0.19 : 0.1, // Minimalna domieszka zielonego
-                b: isDark ? 0.19 : 0.1, // Minimalna domieszka niebieskiego
+                r: isDark ? 1 : 0.6,
+                g: isDark ? 0.19 : 0.1,
+                b: isDark ? 0.19 : 0.1,
                 duration: 0.6
             });
         }
     });
 };
 
-// --- 4. 3D HOVER EFFECT ---
-const init3DHoverCards = () => {
-    const cards = document.querySelectorAll('.offer-card');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const xPct = (e.clientX - rect.left) / rect.width - 0.5;
-            const yPct = (e.clientY - rect.top) / rect.height - 0.5;
-            
-            gsap.to(card, {
-                rotationY: xPct * 12,
-                rotationX: -yPct * 12,
-                transformPerspective: 1000,
-                ease: "power2.out",
-                duration: 0.4
-            });
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card, { rotationY: 0, rotationX: 0, duration: 0.8, ease: "elastic.out(1, 0.5)" });
-        });
-    });
-};
-
-// --- 5. CUSTOM PORTFOLIO CURSOR ---
+// --- 4. CUSTOM PORTFOLIO CURSOR ---
 const initCustomCursor = () => {
     const cursor = document.getElementById('portfolio-cursor');
     const projectCards = document.querySelectorAll('.project-card');
@@ -130,7 +104,7 @@ const initCustomCursor = () => {
     });
 };
 
-// --- 6. MODAL WIDEO ---
+// --- 5. MODAL WIDEO ---
 const initVideoModal = () => {
     const modal = document.getElementById('video-modal');
     const frame = document.getElementById('video-frame');
@@ -158,7 +132,7 @@ const initVideoModal = () => {
     modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 };
 
-// --- 7. START APP ---
+// --- 6. START APP ---
 const startApp = () => {
     gsap.to("#progress", {
         width: "100%", 
@@ -173,7 +147,6 @@ const startApp = () => {
                     initThree();
                     initHorizontal();
                     setupTheme();
-                    init3DHoverCards();
                     initCustomCursor();
                     initVideoModal();
                     
@@ -193,12 +166,3 @@ const startApp = () => {
 };
 
 document.addEventListener('DOMContentLoaded', startApp);
-
-window.addEventListener('resize', () => {
-    if (camera && renderer) {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        ScrollTrigger.refresh();
-    }
-});
