@@ -349,40 +349,44 @@
                 </div>
             </div>
 
-            <div class="bg-zinc-50 dark:bg-zinc-900/50 p-8 md:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 reveal-content">
-                <form action="contact.php" method="POST" class="space-y-5">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div class="space-y-2">
-                            <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">Imię</label>
-                            <input type="text" name="name" required placeholder="Jan Kowalski" 
-                                class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">E-mail</label>
-                            <input type="email" name="email" required placeholder="twoj@email.com" 
-                                class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white">
-                        </div>
-                    </div>
-                    
+        <div class="bg-zinc-50 dark:bg-zinc-900/50 p-8 md:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 reveal-content">
+            <form action="https://formsubmit.co/piterson050406@gmail.com" method="POST" class="space-y-5">
+                <input type="text" name="_honey" style="display:none">
+
+                <input type="hidden" name="_subject" value="Nowe zapytanie ze strony JS FILM">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false"> <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div class="space-y-2">
-                        <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">Wiadomość</label>
-                        <textarea name="message" required rows="4" placeholder="Opisz swój pomysł..." 
-                            class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white resize-none"></textarea>
+                        <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">Imię</label>
+                        <input type="text" name="name" required placeholder="Jan Kowalski" 
+                            class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white">
                     </div>
-
-                    <div class="flex items-start gap-3 py-2">
-                        <input type="checkbox" name="rodo" id="rodo" required class="mt-1 accent-red-600 w-4 h-4 cursor-pointer">
-                        <label for="rodo" class="text-xs text-zinc-500 leading-relaxed cursor-pointer select-none">
-                            Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z polityką prywatności w celu obsługi zapytania. (RODO)
-                        </label>
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">E-mail</label>
+                        <input type="email" name="email" required placeholder="twoj@email.com" 
+                            class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white">
                     </div>
+                </div>
 
-                    <button type="submit" class="w-full py-5 bg-zinc-900 text-white dark:bg-red-600 dark:text-white font-black rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3 group">
-                        WYŚLIJ WIADOMOŚĆ
-                        <i class="fa-solid fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
-                    </button>
-                </form>
-            </div>
+                <div class="space-y-2">
+                    <label class="text-xs uppercase font-bold tracking-wider text-zinc-400 ml-2">Wiadomość</label>
+                    <textarea name="message" required rows="4" placeholder="Opisz swój pomysł..." 
+                        class="w-full p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl outline-none focus:border-red-600 transition-all text-zinc-900 dark:text-white resize-none"></textarea>
+                </div>
+            
+                <div class="flex items-start gap-3 py-2">
+                    <input type="checkbox" name="rodo_zgoda" id="rodo" required value="Zaakceptowano" class="mt-1 accent-red-600 w-4 h-4 cursor-pointer">
+                    <label for="rodo" class="text-xs text-zinc-500 leading-relaxed cursor-pointer select-none">
+                        Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z polityką prywatności w celu obsługi zapytania. (RODO)
+                    </label>
+                </div>
+            
+                <button type="submit" class="w-full py-5 bg-zinc-900 text-white dark:bg-red-600 dark:text-white font-black rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3 group">
+                    WYŚLIJ WIADOMOŚĆ
+                    <i class="fa-solid fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                </button>
+            </form>
+        </div>
 
         </div>
     </div>
